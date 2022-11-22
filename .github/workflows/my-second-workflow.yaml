@@ -1,5 +1,5 @@
 name: GitHub Integration Continue API
-run-name: ${{ github.actor }} is automating API
+run-name: Jamil18474 is automating API
 on:
   push:
     branches: [ main ]
@@ -15,10 +15,10 @@ jobs:
         working-directory: ./api
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm install
-      - run: npm run build --if-present
-      - run: npm test
+          node-version: '12.x'
+      - run: yarn install
+      - run: yarn build
+      - run: yarn test
