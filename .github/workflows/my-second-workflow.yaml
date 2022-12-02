@@ -1,5 +1,5 @@
 name: GitHub Integration Continue API
-run-name: Jamil18474 is automating API
+run-name: ${{ github.actor }} is automating API
 on:
   push:
     branches: [ main ]
