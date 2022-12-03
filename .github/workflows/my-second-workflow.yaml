@@ -45,6 +45,6 @@ jobs:
         with:
           context: ./api
           load: true
-          tags: user/app:latest
+          tags: jamil18474/tp3-github-actions:${{ github.sha }}
 
     
