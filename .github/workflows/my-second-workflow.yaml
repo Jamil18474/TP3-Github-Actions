@@ -45,6 +45,6 @@ jobs:
         with:
           context: ./api
           push: true
-          tags: jamil18474/tp3-github-actions:latest
+          tags: Jamil18474/tp3-github-actions:${{ github.sha }}
 
     
