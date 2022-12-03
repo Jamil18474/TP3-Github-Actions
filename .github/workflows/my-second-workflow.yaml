@@ -22,7 +22,7 @@ jobs:
       - run: yarn install
       - run: yarn build
       - run: yarn test
-    push_to_docker:
+  push_to_docker:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
     steps:
