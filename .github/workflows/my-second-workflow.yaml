@@ -45,6 +45,6 @@ jobs:
         with:
           context: ./api
           push: true
-          tags: jamil18474/tp3-github-actions:ccc68c363e058951a3e04400152d0c5ef9fa2f6e
+          tags: user/app:latest
 
     
