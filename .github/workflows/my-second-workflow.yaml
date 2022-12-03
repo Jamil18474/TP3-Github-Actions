@@ -44,7 +44,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: ./api
-          load: true
-          tags: jamil18474/tp3-github-actions:${{ github.sha }}
+          push: true
+          tags: jamil18/tp3-github-actions:${{ github.sha }}
 
     
