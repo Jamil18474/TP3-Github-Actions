@@ -44,8 +44,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: ./api
-          push: true
-          file: Dockerfile
+          load: true
           tags: user/app:latest
 
     
