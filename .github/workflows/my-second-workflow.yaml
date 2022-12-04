@@ -24,6 +24,7 @@ jobs:
   push_to_docker:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
+    needs: [build-and-test, build-and-test-e2e]
     defaults:
       run:
         working-directory: ./api
@@ -46,5 +47,31 @@ jobs:
           context: ./api
           push: true
           tags: jamil18/tp3-github-actions:${{ github.sha }}
+        
+  build-and-test-e2e:
+    name: Run integration tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./api
+    services:
+      mongo:
+        image: mongo
+        ports:
+          - '27017:27017'
+        env:
+          MONGO_INITDB_ROOT_USERNAME: ${MONGODB_USERNAME}
+          MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_PASSWORD}
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
 
-    
+      - uses: actions/setup-node@v3
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run integration Tests
+        run: yarn test:e2e
+        env:
+          MONGODB_URI: mongodb://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@localhost:27017  
