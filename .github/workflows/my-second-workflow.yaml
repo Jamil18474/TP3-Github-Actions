@@ -1,5 +1,10 @@
 name: GitHub Integration Continue API
-on: [push]
+run-name: ${{ github.actor }} is automating API
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build-and-test:
@@ -22,7 +27,6 @@ jobs:
 
       - name: Run unit tests 
         run: yarn test
-        
   push_to_docker:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
